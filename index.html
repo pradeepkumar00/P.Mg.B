@@ -3,7 +3,10 @@
 <body>
 
 <div id="img"></div>
-<button onclick="next()">Set local storage item</button>
+<div style="position: fixed; bottom: 20px; margin-left: auto; margin-right: auto">
+<button onclick="prev()" >Prev</button>
+<button onclick="next()" >Next</button>
+</div>
 
 <script>
 var x = localStorage.getItem("no");
@@ -13,6 +16,24 @@ if(!x){
 else{
 	no = parseInt(localStorage.getItem("no"));
 }
+function prev(){
+	var y='';
+	if(no<=1){
+		no=16;
+	}
+	else{
+		no=no-1;
+	}
+	if(no>9){
+		y='<img src="https://www.esaral.com/wp-content/uploads/2019/09/Metallurgy_'+no+'.jpg">';
+	}
+	else{
+		y='<img src="https://www.esaral.com/wp-content/uploads/2019/09/Metallurgy_0'+no+'.jpg">';
+	}
+	document.getElementById("img").innerHTML = y;
+	localStorage.setItem("no", no);
+}
+
 function next(){
 	var y='';
 	if(no>15){
