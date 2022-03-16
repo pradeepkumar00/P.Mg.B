@@ -3,9 +3,10 @@
 <body>
 
 <div id="img"></div>
-<div style="position: fixed; bottom: 20px; margin-left: auto; margin-right: auto">
-<button onclick="prev()" >Prev</button>
-<button onclick="next()" >Next</button>
+<div style="position: fixed; bottom: 20px; right: 500px; padding: 20px; background-color: orange;">
+<button onclick="prev()" style="font-size: 30px;">Prev</button>
+<button id="nno" style="font-size: 20px;"></button>
+<button onclick="next()" style="font-size: 30px;">Next</button>
 </div>
 
 <script>
@@ -16,6 +17,14 @@ if(!x){
 else{
 	no = parseInt(localStorage.getItem("no"));
 }
+	if(no>9){
+		y='<img src="https://www.esaral.com/wp-content/uploads/2019/09/Metallurgy_'+no+'.jpg">';
+	}
+	else{
+		y='<img src="https://www.esaral.com/wp-content/uploads/2019/09/Metallurgy_0'+no+'.jpg">';
+	}
+	document.getElementById("img").innerHTML = y;
+	document.getElementById("nno").innerHTML = no;
 function prev(){
 	var y='';
 	if(no<=1){
@@ -32,6 +41,7 @@ function prev(){
 	}
 	document.getElementById("img").innerHTML = y;
 	localStorage.setItem("no", no);
+	document.getElementById("nno").innerHTML = no;
 }
 
 function next(){
@@ -50,6 +60,7 @@ function next(){
 	}
 	document.getElementById("img").innerHTML = y;
 	localStorage.setItem("no", no);
+	document.getElementById("nno").innerHTML = no;
 }
 
 
