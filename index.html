@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="img"></div>
+<button onclick="next()">Set local storage item</button>
+
+<script>
+var x = localStorage.getItem("no");
+if(!x){
+	no=1;
+}
+else{
+	no = parseInt(localStorage.getItem("no"));
+}
+function next(){
+	var y='';
+	if(no>15){
+		no=1;
+	}
+	else{
+		no=no+1;
+	}
+	if(no>9){
+		y='<img src="https://www.esaral.com/wp-content/uploads/2019/09/Metallurgy_'+no+'.jpg">';
+	}
+	else{
+		y='<img src="https://www.esaral.com/wp-content/uploads/2019/09/Metallurgy_0'+no+'.jpg">';
+	}
+	document.getElementById("img").innerHTML = y;
+	localStorage.setItem("no", no);
+}
+
+
+function readValue() {
+  var x = localStorage.getItem("mytime");
+  document.getElementById("demo").innerHTML = x;
+}
+
+</script>
+</body>
+</html>
